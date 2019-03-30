@@ -1,0 +1,66 @@
+﻿@model Tarea6_html_helpers.Models.Persona
+@{
+    ViewBag.Title = "About";
+}
+
+<h2>Bienvenido</h2>
+
+<div class="form-horizontal">
+    @Html.AntiForgeryToken()
+
+    <hr />
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su Cedula es: @Model.Cedula <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su Nombre es: @Model.Nombre <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su Apellido es: @Model.Apellido <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su edad es: @Model.Edad <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su telefono es: @Model.Telefono <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su correo es: @Model.Correo <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su genero es: @Model.Genero <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su estado civil es: @Model.EstadoCivil <br /></label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <label>Su(s) Hobby(s) es(son): @Model.Hobbys <br /></label>
+        </div>
+    </div>
+</div>

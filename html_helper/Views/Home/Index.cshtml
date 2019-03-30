@@ -1,0 +1,116 @@
+﻿@model Tarea6_html_helpers.Models.Persona
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Formulario</h2>
+
+<form action="About" method="post">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Persona</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Cedula, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Edad)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Genero, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Genero", new List<SelectListItem>
+                    {
+                    new SelectListItem{Text="Masculino", Value = "Masculino"},
+                    new SelectListItem{Text="Femenino", Value = "Femenino"}},
+                    new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EstadoCivil, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.RadioButtonFor(model => model.EstadoCivil, "Casado") Casado
+                    @Html.RadioButtonFor(model => model.EstadoCivil, "Soltero") Soltero
+                    @Html.RadioButtonFor(model => model.EstadoCivil, "Viudo") Viudo
+                    @Html.RadioButtonFor(model => model.EstadoCivil, "Union Libre") Union Libre
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Hobbys, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.CheckBox("Hobbys", false, new { @value = "Jugar" })
+                    Jugar
+                    @Html.CheckBox("Hobbys", false, new { @value = "Programar" })
+                    Programar
+                    @Html.CheckBox("Hobbys", false, new { @value = "Comer" })
+                    Comer
+                    @Html.CheckBox("Hobbys", false, new { @value = "Dormir" })
+                    Dormir
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+
+                    <button class="btn btn-primary" type="submit" value="Entrar">Entrar</button>
+
+                </div>
+            </div>
+        </div>
+    }
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
